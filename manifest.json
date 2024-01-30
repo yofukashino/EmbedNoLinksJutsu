@@ -1,0 +1,22 @@
+{
+    "id":  "dev.tharki.EmbedNoLinksJutsu",
+    "name":  "EmbedNoLinksJutsu",
+    "description":  "Hide Links which embeds",
+    "author":  {
+                   "discordID":  "1121961711080050780",
+                   "name":  "Ahlawat",
+                   "github":  "TharkiDev"
+               },
+    "version":  "1.0.0",
+    "updater":  {
+                    "id":  "TharkiDev/EmbedNoLinksJutsu",
+                    "type":  "github"
+                },
+    "license":  "MIT",
+    "type":  "replugged-plugin",
+    "renderer":  "src/index.ts",
+    "source":  "https://github.com/TharkiDev/EmbedNoLinksJutsu",
+    "image":  [
+                  "https://i.imgur.com/14CNs3a.png?CHANGE-THIS-URL"
+              ]
+}
