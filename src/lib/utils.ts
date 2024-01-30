@@ -3,10 +3,16 @@ import Types from "../types";
 
 export const linkFilter = (
   message: Types.Message,
-  children: React.ReactElement | React.ReactElement[],
-): boolean =>
-  Array.isArray(children)
-    ? Boolean(children?.filter?.(linkFilter.bind(null, message)).length)
-    : !message?.embeds?.some((embed) => embed?.url == children?.props?.href);
+  array: React.ReactElement[],
+): React.ReactElement[] =>
+  array.reduce((acc, children) => {
+    if (Array.isArray(children)) {
+      const filteredSubarray = linkFilter(message, children);
+      acc.push(...filteredSubarray);
+    } else if (!message?.embeds?.some((embed) => embed?.url == children?.props?.href)) {
+      acc.push(children);
+    }
+    return acc;
+  }, []);
 
 export default { ...util, linkFilter };
