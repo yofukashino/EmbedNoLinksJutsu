@@ -9,7 +9,6 @@ export default (): void => {
     if (!Array.isArray(props.content)) props.content = [props.content];
     try {
       props.content = Utils.linkFilter(props.message, props.content);
-      console.log(...props.content);
     } catch (error) {
       PluginLogger.error(error);
     }
