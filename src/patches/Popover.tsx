@@ -1,7 +1,8 @@
-import { fluxDispatcher as FluxDispatcher } from "replugged/common";
 import { PluginInjectorUtils, ShownMessageStateIds } from "../index";
 import { MessageContentGenertor } from "../lib/requiredModules";
+
 import Icons from "../Components/Icons";
+import Utils from "../lib/utils";
 import Types from "../types";
 export default (): void => {
   PluginInjectorUtils.addPopoverButton((message: Types.Message) => {
@@ -22,10 +23,7 @@ export default (): void => {
           } else {
             ShownMessageStateIds.add(message.id);
           }
-          FluxDispatcher.dispatch({
-            type: "MESSAGE_UPDATE",
-            message,
-          });
+          Utils.rerenderMessage(message);
         },
       };
     return null;

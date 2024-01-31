@@ -1,6 +1,21 @@
 import { util } from "replugged";
+import { PluginInjector } from "..";
 import Types from "../types";
-
+export const forceRerenderElement = async (selector: string): Promise<void> => {
+  const element = await util.waitFor(selector);
+  if (!element) return;
+  const ownerInstance = util.getOwnerInstance(element);
+  const unpatchRender = PluginInjector.instead(ownerInstance, "render", () => {
+    unpatchRender();
+    return null;
+  });
+  ownerInstance.forceUpdate(() => ownerInstance.forceUpdate(() => {}));
+};
+export const rerenderMessage = (message: Types.Message): void => {
+  void forceRerenderElement(
+    `[data-list-item-id="chat-messages___chat-messages-${message.channel_id}-${message.id}"]`,
+  );
+};
 export const linkFilter = (
   message: Types.Message,
   array: React.ReactElement[],
@@ -15,4 +30,4 @@ export const linkFilter = (
     return acc;
   }, []);
 
-export default { ...util, linkFilter };
+export default { ...util, forceRerenderElement, rerenderMessage, linkFilter };
