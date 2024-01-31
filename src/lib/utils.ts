@@ -1,15 +1,19 @@
 import { util } from "replugged";
-import { PluginInjector } from "..";
+import { PluginInjector, PluginLogger } from "..";
 import Types from "../types";
 export const forceRerenderElement = async (selector: string): Promise<void> => {
-  const element = await util.waitFor(selector);
-  if (!element) return;
-  const ownerInstance = util.getOwnerInstance(element);
-  const unpatchRender = PluginInjector.instead(ownerInstance, "render", () => {
-    unpatchRender();
-    return null;
-  });
-  ownerInstance.forceUpdate(() => ownerInstance.forceUpdate(() => {}));
+  try {
+    const element = await util.waitFor(selector);
+    if (!element) return;
+    const ownerInstance = util.getOwnerInstance(element);
+    const unpatchRender = PluginInjector.instead(ownerInstance, "render", () => {
+      unpatchRender();
+      return null;
+    });
+    ownerInstance.forceUpdate(() => ownerInstance.forceUpdate(() => {}));
+  } catch (err) {
+    PluginLogger.error(`私の闘争: ${err}`);
+  }
 };
 export const rerenderMessage = (message: Types.Message): void => {
   void forceRerenderElement(
@@ -20,6 +24,7 @@ export const linkFilter = (
   message: Types.Message,
   array: React.ReactElement[],
 ): React.ReactElement[] =>
+  //秘術 隠された存在」
   array.reduce((acc, children) => {
     if (Array.isArray(children)) {
       const filteredSubarray = linkFilter(message, children);

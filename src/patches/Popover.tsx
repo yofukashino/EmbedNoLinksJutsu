@@ -1,6 +1,5 @@
-import { PluginInjectorUtils, ShownMessageStateIds } from "../index";
+import { PluginInjectorUtils, PluginLogger, ShownMessageStateIds } from "../index";
 import { MessageContentGenertor } from "../lib/requiredModules";
-
 import Icons from "../Components/Icons";
 import Utils from "../lib/utils";
 import Types from "../types";
@@ -18,12 +17,16 @@ export default (): void => {
             <Icons.link width="22" height="22" />
           ),
         onClick: () => {
-          if (ShownMessageStateIds.has(message.id)) {
-            ShownMessageStateIds.delete(message.id);
-          } else {
-            ShownMessageStateIds.add(message.id);
+          try {
+            if (ShownMessageStateIds.has(message.id)) {
+              ShownMessageStateIds.delete(message.id);
+            } else {
+              ShownMessageStateIds.add(message.id);
+            }
+            Utils.rerenderMessage(message);
+          } catch (err) {
+            PluginLogger.error(`私の闘争: ${err}`);
           }
-          Utils.rerenderMessage(message);
         },
       };
     return null;
