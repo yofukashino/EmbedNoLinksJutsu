@@ -29,7 +29,18 @@ export const linkFilter = (
     if (Array.isArray(children)) {
       const filteredSubarray = linkFilter(message, children);
       acc.push(...filteredSubarray);
-    } else if (!message?.embeds?.some((embed) => embed?.url == children?.props?.href)) {
+    } else if (
+      !message?.embeds?.some(
+        (embed) =>
+          children?.props?.href?.includes(embed?.url) ||
+          children?.props?.href
+            ?.replace(
+              /^https:\/\/.*youtu.be\/|https:\/\/.*youtube.com\/shorts\//,
+              "https://www.youtube.com/watch?v=",
+            )
+            ?.includes(embed?.url),
+      )
+    ) {
       acc.push(children);
     }
     return acc;
