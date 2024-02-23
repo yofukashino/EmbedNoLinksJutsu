@@ -4,7 +4,7 @@ Hide Links which embeds in message
 
 Gives a clean look. Links can be toggles from popover
 
-Direct Download Link: [dev.tharki.EmbedNoLinksJutsu.asar](https://github.com/TharkiDev/EmbedNoLinksJutsu/releases/latest/download/dev.tharki.EmbedNoLinksJutsu.asar)
+Direct Download Link: [dev.tharki.EmbedNoLinksJutsu.asar](https://github.com/Yofukashi-No/EmbedNoLinksJutsu/releases/latest/download/dev.tharki.EmbedNoLinksJutsu.asar)
 
 Install Link:
 
