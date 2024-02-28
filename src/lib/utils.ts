@@ -38,7 +38,18 @@ export const linkFilter = (
               /^https:\/\/.*youtu.be\/|https:\/\/.*youtube.com\/shorts\//,
               "https://www.youtube.com/watch?v=",
             )
-            ?.includes(embed?.url),
+            ?.includes(embed?.url) ||
+          children?.props?.href
+            ?.replace(
+              /^https:\/\/.*youtu.be\/|https:\/\/.*youtube.com\/shorts\//,
+              "https://www.youtube.com/watch?v=",
+            )
+            ?.includes(
+              embed?.url?.replace(
+                /^https:\/\/.*youtu.be\/|https:\/\/.*youtube.com\/shorts\//,
+                "https://www.youtube.com/watch?v=",
+              ),
+            ),
       )
     ) {
       acc.push(children);

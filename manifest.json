@@ -5,7 +5,7 @@
   "author": {
     "discordID": "1121961711080050780",
     "name": "Ahlawat",
-    "github": "Yofukashi-No"
+    "github": "YofukashiNo"
   },
   "version": "1.0.1",
   "updater": {
@@ -15,6 +15,6 @@
   "license": "MIT",
   "type": "replugged-plugin",
   "renderer": "src/index.ts",
-  "source": "https://github.com/Yofukashi-No/EmbedNoLinksJutsu",
+  "source": "https://github.com/YofukashiNo/EmbedNoLinksJutsu",
   "image": "https://i.imgur.com/fhszVmG.png"
 }
