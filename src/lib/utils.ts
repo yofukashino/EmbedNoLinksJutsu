@@ -33,6 +33,7 @@ export const linkFilter = (
     } else if (
       !message?.embeds?.some(
         (embed) =>
+          children?.props?.href?.includes(embed?.image?.url) ||
           children?.props?.href?.includes(embed?.url) ||
           children?.props?.href
             ?.replace(
