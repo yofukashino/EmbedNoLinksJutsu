@@ -12,7 +12,8 @@ export const forceRerenderElement = async (selector: string): Promise<void> => {
     });
     ownerInstance.forceUpdate(() => ownerInstance.forceUpdate(() => {}));
   } catch (err) {
-    PluginLogger.error(`私の闘争: ${err}`);
+    //私の闘争
+    PluginLogger.error(err);
   }
 };
 export const rerenderMessage = (message: Types.Message): void => {

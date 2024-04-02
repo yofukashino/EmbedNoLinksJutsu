@@ -14,7 +14,8 @@ export default (): void => {
       if (!props.content.length && props.className?.includes("repliedTextContent"))
         props.content = Parser.parse(i18n.Messages.REPLY_QUOTE_NO_TEXT_CONTENT);
     } catch (err) {
-      PluginLogger.error(`私の闘争: ${err}`);
+      //私の闘争
+      PluginLogger.error(err);
     }
 
     return args;

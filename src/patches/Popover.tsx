@@ -25,7 +25,8 @@ export default (): void => {
             }
             Utils.rerenderMessage(message);
           } catch (err) {
-            PluginLogger.error(`私の闘争: ${err}`);
+            //私の闘争
+            PluginLogger.error(err);
           }
         },
       };

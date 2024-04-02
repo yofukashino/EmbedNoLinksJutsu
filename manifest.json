@@ -1,15 +1,15 @@
 {
-  "id": "dev.tharki.EmbedNoLinksJutsu",
+  "id": "dev.yofukashino.EmbedNoLinksJutsu",
   "name": "EmbedNoLinksJutsu",
   "description": "Hide Links which embeds",
   "author": {
     "discordID": "1121961711080050780",
-    "name": "Ahlawat",
+    "name": "Nanakusa",
     "github": "YofukashiNo"
   },
   "version": "1.0.2",
   "updater": {
-    "id": "dev.tharki.EmbedNoLinksJutsu",
+    "id": "dev.yofukashino.EmbedNoLinksJutsu",
     "type": "store"
   },
   "license": "MIT",
