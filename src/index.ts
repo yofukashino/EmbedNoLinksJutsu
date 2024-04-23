@@ -1,17 +1,24 @@
-import { Injector, Logger } from "replugged";
+import { Injector, Logger, settings } from "replugged";
+import { defaultSettings } from "./lib/consts";
 export const PluginInjector = new Injector();
 export const { utils: PluginInjectorUtils } = PluginInjector;
 export const PluginLogger = Logger.plugin("EmbedNoLinksJutsu", "#b380ff");
+export const SettingValues = await settings.init(
+  "dev.yofukashino.EmbedNoLinksJutsu",
+  defaultSettings,
+);
 export const ShownMessageStateIds = new Set<string>();
-import Injections from "./patches/index";
+import Injections from "./injections/index";
 
 export const start = (): void => {
-  Injections.applyInjections();
+  void Injections.applyInjections();
 };
 
 export const stop = (): void => {
   PluginInjector.uninjectAll();
 };
+
+export { Settings } from "./Components/Settings";
 
 /*
 

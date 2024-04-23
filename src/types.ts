@@ -22,5 +22,14 @@ export namespace Types {
     };
     renderAutomodMessageMarkup: DefaultTypes.AnyFunction;
   }
+  export interface Modules {
+    loadModules?: () => Promise<void>;
+    MessageContent?: MessageContent;
+    MessageContentGenertor?: MessageContentGenertor;
+  }
+  export interface Settings {
+    defaultBehaviour: string;
+    alt: string;
+  }
 }
 export default Types;
