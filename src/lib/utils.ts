@@ -71,7 +71,8 @@ export const linkFilter = (
       (alt &&
         message?.embeds?.some((embed) => subFilter(embed?.image?.url) || subFilter(embed?.url))) ||
       !message?.embeds?.some((embed) => subFilter(embed?.image?.url) || subFilter(embed?.url)) ||
-      subFilter(children?.props?.title?.match(/[\s.]+?\((.+?)\)/)?.[1])
+      (!children?.props?.title?.startsWith(children?.props?.href) &&
+        subFilter(children?.props?.title?.match(/[\s.]+?\((.+?)\)/)?.[1]))
     ) {
       const span = util.findInReactTree(
         children,
