@@ -1,6 +1,6 @@
 {
   "name": "embed-no-links-jutsu",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Hide Links which embeds",
   "engines": {
     "node": ">=20.0.0",
