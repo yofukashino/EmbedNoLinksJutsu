@@ -11,7 +11,7 @@ export const ShownMessageStateIds = new Set<string>();
 import Injections from "./injections/index";
 
 export const start = (): void => {
-  void Injections.applyInjections();
+  void Injections.applyInjections().catch((err) => PluginLogger.error(err));
 };
 
 export const stop = (): void => {

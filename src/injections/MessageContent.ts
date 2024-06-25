@@ -1,11 +1,18 @@
+import { webpack } from "replugged";
 import { parser as Parser, i18n } from "replugged/common";
 import { PluginInjector, PluginLogger, SettingValues, ShownMessageStateIds } from "../index";
 import { defaultSettings } from "../lib/consts";
 import Modules from "../lib/requiredModules";
 import Utils from "../lib/utils";
+import Types from "../types";
 
 export default (): void => {
-  PluginInjector.before(Modules.MessageContent.default, "type", (args) => {
+  const ContentMemo = webpack.getExportsForProps<Types.MessageContent["default"]>(
+    Modules.MessageContent,
+    ["type", "compare"],
+  );
+
+  PluginInjector.before(ContentMemo, "type", (args) => {
     const [props] = args;
     try {
       if (
