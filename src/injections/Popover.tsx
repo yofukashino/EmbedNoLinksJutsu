@@ -7,7 +7,7 @@ import Types from "../types";
 export default (): void => {
   const generateContent = webpack.getFunctionBySource<Types.MessageContentGenertor["default"]>(
     Modules.MessageContentGenertor,
-    "hideSimpleEmbedContent:",
+    ".formatInline?",
   );
 
   PluginInjectorUtils.addPopoverButton((message: Types.Message) => {
