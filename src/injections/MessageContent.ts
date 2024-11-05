@@ -1,5 +1,5 @@
 import { webpack } from "replugged";
-import { parser as Parser, i18n } from "replugged/common";
+import { parser as Parser } from "replugged/common";
 import { PluginInjector, PluginLogger, SettingValues, ShownMessageStateIds } from "../index";
 import { defaultSettings } from "../lib/consts";
 import Modules from "../lib/requiredModules";
@@ -30,7 +30,7 @@ export default (): void => {
           ? Utils.linkFilter(props.message, props.content, true)
           : Utils.linkFilter(props.message, props.content);
       if (!props.content.length && props.className?.includes("repliedTextContent"))
-        props.content = Parser.parse(i18n.Messages.REPLY_QUOTE_NO_TEXT_CONTENT);
+        props.content = Parser.parse("Click to see attachment");
     } catch (err) {
       //私の闘争
       PluginLogger.error(err);

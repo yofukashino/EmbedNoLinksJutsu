@@ -5,7 +5,7 @@ export const Modules: Types.Modules = {};
 
 Modules.loadModules = async (): Promise<void> => {
   Modules.MessageContent ??= await webpack
-    .waitForModule<Types.MessageContent>(webpack.filters.bySource(".Messages.MESSAGE_EDITED,"), {
+    .waitForModule<Types.MessageContent>(webpack.filters.bySource(".editedTimestamp,isEdited:!0"), {
       timeout: 10000,
     })
     .catch(() => {
